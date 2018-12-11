@@ -14,10 +14,16 @@ namespace WerewolfClient
     {
         private WerewolfController controller;
         private Form _mainForm;
-        public Login(Form MainForm)
+        //public Login(Form MainForm)
+        //{
+        //    InitializeComponent();
+        //    _mainForm = MainForm;
+        //}
+
+        public Login(Form GameForm)
         {
             InitializeComponent();
-            _mainForm = MainForm;
+            _mainForm = GameForm;
         }
 
         public void Notify(Model m)

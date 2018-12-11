@@ -382,6 +382,7 @@ namespace WerewolfClient
             }
             NotifyAll();
         }
+
         public void SignUp(string server, string login, string password)
         {
             try

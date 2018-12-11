@@ -17,7 +17,8 @@ namespace WerewolfClient
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            MainForm mMainForm = new MainForm();
+            GameForm mMainForm = new GameForm();
+            //MainForm mMainForm = new MainForm();
             mMainForm.Visible = false;
             Login mLogin = new Login(mMainForm);
             WerewolfController mControler =  WerewolfController.GetInstance();
@@ -35,6 +36,7 @@ namespace WerewolfClient
             mModel.AttachObserver(mMainForm);
 
             Application.Run(mLogin);
+            //Application.Run(mMainForm);
         }
     }
 }
