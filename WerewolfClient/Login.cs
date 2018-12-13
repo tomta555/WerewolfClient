@@ -24,6 +24,22 @@ namespace WerewolfClient
         {
             InitializeComponent();
             _mainForm = GameForm;
+
+            BtnSignIn.Height = Properties.Resources.SIGN_IN.Height;
+            BtnSignIn.Width = Properties.Resources.SIGN_IN.Width;
+            BtnSignIn.BackColor = Color.Transparent;
+            BtnSignIn.FlatStyle = FlatStyle.Flat;
+            BtnSignIn.FlatAppearance.BorderSize = 0;
+            BtnSignIn.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnSignIn.FlatAppearance.MouseOverBackColor = Color.Transparent;
+
+            BtnSignUp.Height = Properties.Resources.SIGN_UP.Height;
+            BtnSignUp.Width = Properties.Resources.SIGN_UP.Width;
+            BtnSignUp.BackColor = Color.Transparent;
+            BtnSignUp.FlatStyle = FlatStyle.Flat;
+            BtnSignUp.FlatAppearance.BorderSize = 0;
+            BtnSignUp.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnSignUp.FlatAppearance.MouseOverBackColor = Color.Transparent;
         }
 
         public void Notify(Model m)

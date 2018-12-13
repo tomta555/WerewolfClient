@@ -116,11 +116,30 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\SIGN_UP.png" />
+    <None Include="Resources\SIGN_IN.png" />
+    <None Include="Resources\SIGN IN.png" />
     <None Include="Resources\Char_nonChar.png" />
     <None Include="Resources\BG_Front1.png" />
     <None Include="Resources\Btn_join.png" />
     <None Include="Resources\BG_Back.jpg" />
     <None Include="Resources\2.jpg" />
+    <None Include="Resources\char_seer_resize.png" />
+    <None Include="Resources\char_someone_resize.png" />
+    <None Include="Resources\char_Bodyguard_resize2.png" />
+    <None Include="Resources\char_doctor_resize2.png" />
+    <None Include="Resources\char_Head Hunter_resize2.png" />
+    <None Include="Resources\char_jailer_resize2.png" />
+    <None Include="Resources\char_killer_resize2.png" />
+    <None Include="Resources\char_priest_resize2.png" />
+    <None Include="Resources\char_seer_resize2.png" />
+    <None Include="Resources\char_someone_resize2.png" />
+    <None Include="Resources\char_villager_resize2.png" />
+    <None Include="Resources\char_wolf_resize.png" />
+    <None Include="Resources\char_wolf_resize2.png" />
+    <None Include="Resources\char_wolf_shaman_resize.png" />
+    <None Include="Resources\char_wolf_shaman_resize2.png" />
+    <None Include="Resources\char_Head Hunter_resize.png" />
     <Content Include="Resources\Icon_alpha_werewolf.png" />
     <Content Include="Resources\Icon_aura_seer.png" />
     <Content Include="Resources\Icon_bodyguard.png" />

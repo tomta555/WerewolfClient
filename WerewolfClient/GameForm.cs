@@ -73,47 +73,43 @@ namespace WerewolfClient
 
             foreach (int i in Enumerable.Range(0, 16))
             {
-                ButtonXSetup((Button)Controls["panel1"].Controls["BtnPlayer" + i]);              
+                ButtonXSetup((Button)Controls["panel1"].Controls["BtnPlayer" + i], i);
+                ButtonVisible((Button)Controls["panel1"].Controls["BtnPlayer" + i], false);
             }
+
+            this.ChatPanel.Visible = false; 
             
-            //ButtonXSetup(BtnPlayer0);
-            //ButtonXSetup(BtnPlayer1);
-            //ButtonXSetup(BtnPlayer2);
-            //ButtonXSetup(BtnPlayer2);
-            //ButtonXSetup(BtnPlayer3);
-            //ButtonXSetup(BtnPlayer4);
-            //ButtonXSetup(BtnPlayer5);
-            //ButtonXSetup(BtnPlayer6);
-            //ButtonXSetup(BtnPlayer7);
-            //ButtonXSetup(BtnPlayer8);
-            //ButtonXSetup(BtnPlayer9);
-            //ButtonXSetup(BtnPlayer10);
-            //ButtonXSetup(BtnPlayer11);
-            //ButtonXSetup(BtnPlayer12);
-            //ButtonXSetup(BtnPlayer13);
-            //ButtonXSetup(BtnPlayer14);
-            //ButtonXSetup(BtnPlayer15);
-
-            //TbChatBox.BackColor = Color.Transparent;
-
-            bool itWorked = SetStyle(TbChatBox, ControlStyles.SupportsTransparentBackColor, true);
-            TbChatBox.BackColor = Color.Transparent;
         }
 
-        public void ButtonXSetup(Button btn)
+        public void ButtonXSetup(Button btn, int i)
         {
-            btn.Image = Properties.Resources.Char_nonChar;
-            btn.Width = Properties.Resources.Char_nonChar.Width;
-            btn.Height = Properties.Resources.Char_nonChar.Height;
+            if(i < 8)
+            {
+                btn.Image = Properties.Resources.char_someone_resize;
+                btn.Width = Properties.Resources.char_someone_resize.Width;
+                btn.Height = Properties.Resources.char_someone_resize.Height + 20;
+            }
+            else
+            {
+                btn.Image = Properties.Resources.char_someone_resize2;
+                btn.Width = Properties.Resources.char_someone_resize2.Width;
+                btn.Height = Properties.Resources.char_someone_resize2.Height + 20;
+            }
+
             btn.BackColor = Color.Transparent;
             btn.FlatStyle = FlatStyle.Flat;
             btn.FlatAppearance.BorderSize = 0;
-            btn.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            btn.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            btn.ForeColor = System.Drawing.Color.White;
+            //btn.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            //btn.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btn.ForeColor = System.Drawing.Color.Black;
             btn.Text = "";
-            btn.Visible = false;
         }
+
+        public void ButtonVisible(Button btn, bool state)
+        {
+            btn.Visible = state;
+        }
+
         private void OnTimerEvent(object sender, EventArgs e)
         {
             WerewolfCommand wcmd = new WerewolfCommand();
@@ -129,7 +125,7 @@ namespace WerewolfClient
                 if (player.Name == wm.Player.Name || player.Status != Player.StatusEnum.Alive)
                 {
                     // FIXME, need to optimize this
-                    Image img = Properties.Resources.Char_nonChar;
+                    Image img = Properties.Resources.char_villager_resize;
                     string role;
                     if (player.Name == wm.Player.Name)
                     {
@@ -141,56 +137,116 @@ namespace WerewolfClient
                     }
                     else
                     {
+                        i++;
                         continue;
                     }
-                    switch (role)
+                    if (i >= 8)
                     {
-                        case WerewolfModel.ROLE_SEER:
-                            img = Properties.Resources.Icon_seer;
-                            break;
-                        case WerewolfModel.ROLE_AURA_SEER:
-                            img = Properties.Resources.Icon_aura_seer;
-                            break;
-                        case WerewolfModel.ROLE_PRIEST:
-                            img = Properties.Resources.Icon_priest;
-                            break;
-                        case WerewolfModel.ROLE_DOCTOR:
-                            img = Properties.Resources.Icon_doctor;
-                            break;
-                        case WerewolfModel.ROLE_WEREWOLF:
-                            img = Properties.Resources.Icon_werewolf;
-                            break;
-                        case WerewolfModel.ROLE_WEREWOLF_SEER:
-                            img = Properties.Resources.Icon_wolf_seer;
-                            break;
-                        case WerewolfModel.ROLE_ALPHA_WEREWOLF:
-                            img = Properties.Resources.Icon_alpha_werewolf;
-                            break;
-                        case WerewolfModel.ROLE_WEREWOLF_SHAMAN:
-                            img = Properties.Resources.Icon_wolf_shaman;
-                            break;
-                        case WerewolfModel.ROLE_MEDIUM:
-                            img = Properties.Resources.Icon_medium;
-                            break;
-                        case WerewolfModel.ROLE_BODYGUARD:
-                            img = Properties.Resources.Icon_bodyguard;
-                            break;
-                        case WerewolfModel.ROLE_JAILER:
-                            img = Properties.Resources.Icon_jailer;
-                            break;
-                        case WerewolfModel.ROLE_FOOL:
-                            img = Properties.Resources.Icon_fool;
-                            break;
-                        case WerewolfModel.ROLE_HEAD_HUNTER:
-                            img = Properties.Resources.Icon_head_hunter;
-                            break;
-                        case WerewolfModel.ROLE_SERIAL_KILLER:
-                            img = Properties.Resources.Icon_serial_killer;
-                            break;
-                        case WerewolfModel.ROLE_GUNNER:
-                            img = Properties.Resources.Icon_gunner;
-                            break;
+                        switch (role)
+                        {
+                            case WerewolfModel.ROLE_SEER:
+                                img = Properties.Resources.char_seer_resize2;
+                                break;
+                            case WerewolfModel.ROLE_AURA_SEER:
+                                img = Properties.Resources.Icon_aura_seer;
+                                break;
+                            case WerewolfModel.ROLE_PRIEST:
+                                img = Properties.Resources.char_priest_resize2;
+                                break;
+                            case WerewolfModel.ROLE_DOCTOR:
+                                img = Properties.Resources.char_doctor_resize2;
+                                break;
+                            case WerewolfModel.ROLE_WEREWOLF:
+                                img = Properties.Resources.char_wolf_resize2;
+                                break;
+                            case WerewolfModel.ROLE_WEREWOLF_SEER:
+                                img = Properties.Resources.Icon_wolf_seer;
+                                break;
+                            case WerewolfModel.ROLE_ALPHA_WEREWOLF:
+                                img = Properties.Resources.Icon_alpha_werewolf;
+                                break;
+                            case WerewolfModel.ROLE_WEREWOLF_SHAMAN:
+                                img = Properties.Resources.char_wolf_shaman_resize2;
+                                break;
+                            case WerewolfModel.ROLE_MEDIUM:
+                                img = Properties.Resources.Icon_medium;
+                                break;
+                            case WerewolfModel.ROLE_BODYGUARD:
+                                img = Properties.Resources.char_Bodyguard_resize2;
+                                break;
+                            case WerewolfModel.ROLE_JAILER:
+                                img = Properties.Resources.char_jailer_resize2;
+                                break;
+                            case WerewolfModel.ROLE_FOOL:
+                                img = Properties.Resources.Icon_fool;
+                                break;
+                            case WerewolfModel.ROLE_HEAD_HUNTER:
+                                img = Properties.Resources.char_Head_Hunter_resize2;
+                                break;
+                            case WerewolfModel.ROLE_SERIAL_KILLER:
+                                img = Properties.Resources.char_killer_resize2;
+                                break;
+                            case WerewolfModel.ROLE_GUNNER:
+                                img = Properties.Resources.Icon_gunner;
+                                break;
+                        }
                     }
+                    else
+                    {
+                        switch (role)
+                        {
+                            case WerewolfModel.ROLE_SEER:
+                                img = Properties.Resources.char_seer_resize;
+                                break;
+                            case WerewolfModel.ROLE_AURA_SEER:
+                                img = Properties.Resources.Icon_aura_seer;
+                                break;
+                            case WerewolfModel.ROLE_PRIEST:
+                                img = Properties.Resources.char_priest_resize;
+                                break;
+                            case WerewolfModel.ROLE_DOCTOR:
+                                img = Properties.Resources.char_doctor_resize;
+                                break;
+                            case WerewolfModel.ROLE_WEREWOLF:
+                                img = Properties.Resources.char_wolf_resize;
+                                break;
+                            case WerewolfModel.ROLE_WEREWOLF_SEER:
+                                img = Properties.Resources.Icon_wolf_seer;
+                                break;
+                            case WerewolfModel.ROLE_ALPHA_WEREWOLF:
+                                img = Properties.Resources.Icon_alpha_werewolf;
+                                break;
+                            case WerewolfModel.ROLE_WEREWOLF_SHAMAN:
+                                img = Properties.Resources.char_wolf_shaman_resize;
+                                break;
+                            case WerewolfModel.ROLE_MEDIUM:
+                                img = Properties.Resources.Icon_medium;
+                                break;
+                            case WerewolfModel.ROLE_BODYGUARD:
+                                img = Properties.Resources.char_Bodyguard_resize;
+                                break;
+                            case WerewolfModel.ROLE_JAILER:
+                                img = Properties.Resources.char_jailer_resize;
+                                break;
+                            case WerewolfModel.ROLE_FOOL:
+                                img = Properties.Resources.Icon_fool;
+                                break;
+                            case WerewolfModel.ROLE_HEAD_HUNTER:
+                                img = Properties.Resources.char_Head_Hunter_resize;
+                                break;
+                            case WerewolfModel.ROLE_SERIAL_KILLER:
+                                img = Properties.Resources.char_killer_resize;
+                                break;
+                            case WerewolfModel.ROLE_GUNNER:
+                                img = Properties.Resources.Icon_gunner;
+                                break;
+                        }
+                    }
+                    ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Image = img;
+                }
+                else if(player.Name != wm.Player.Name)
+                {
+                    Image img = Properties.Resources.char_villager_resize;
                     ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Image = img;
                 }
                 i++;
@@ -208,8 +264,8 @@ namespace WerewolfClient
                         if (wm.EventPayloads["Success"] == WerewolfModel.TRUE)
                         {
                             BtnJoin.Visible = false;
-                            //AddChatMessage("You're joing the game #" + wm.EventPayloads["Game.Id"] + ", please wait for game start.");
-                            AddSystemMessage("You're joing the game #" + wm.EventPayloads["Game.Id"] + ", please wait for game start.");
+                            //AddChatMessage("You're joining the game #" + wm.EventPayloads["Game.Id"] + ", please wait for game start.");
+                            AddSystemMessage("You're joining the game #" + wm.EventPayloads["Game.Id"] + ", please wait for game start.");
                             _updateTimer.Interval = 1000;
                             _updateTimer.Tick += new EventHandler(OnTimerEvent);
                             _updateTimer.Enabled = true;
@@ -415,10 +471,13 @@ namespace WerewolfClient
             WerewolfCommand wcmd = new WerewolfCommand();
             wcmd.Action = CommandEnum.JoinGame;
             controller.ActionPerformed(wcmd);
-                        foreach (int i in Enumerable.Range(0, 16))
-            {
-                this.Controls["panel1"].Controls["BtnPlayer" + i].Visible = true;
+
+            foreach (int i in Enumerable.Range(0, 16))
+            {                
+                ButtonVisible((Button)Controls["panel1"].Controls["BtnPlayer" + i], true);              
             }
+
+            this.ChatPanel.Visible = true;
 
         }
         private void GameForm_FormClosed(object sender, FormClosedEventArgs e)
