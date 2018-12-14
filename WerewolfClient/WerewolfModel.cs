@@ -58,6 +58,8 @@ namespace WerewolfClient
             Alive = 15,
             Chat = 16,
             ChatMessage = 17,
+            LeaveGame = 18,
+            SignOut = 19,
         }
         public const string ROLE_SEER = "Seer";
         public const string ROLE_AURA_SEER = "Aura Seer";
@@ -401,6 +403,55 @@ namespace WerewolfClient
                 _eventPayloads["Success"] = FALSE;
                 _eventPayloads["Error"] = ex.ToString();
             }
+            NotifyAll();
+        }
+
+        public void LeaveGame()
+        {
+            if (_player == null)
+            {
+                _event = EventEnum.LeaveGame;
+                _eventPayloads["Success"] = FALSE;
+                _eventPayloads["Error"] = "Not in game";
+            }
+            else if (_game != null)
+            {
+                _game = _gameEP.GameSessionSessionIDDelete(_player.Session);
+                _roles = null;
+                _actions = null;
+                //_player = null;
+                _game = null;
+                _playerRole = null;
+                _playerActions = null;
+                //_currentPeriod = 0;
+                _currentDay = 0;
+                _currentTime = 0;
+                _prevPlayers = null;
+                _isPlaying = false;
+                _event = EventEnum.LeaveGame;
+                _eventPayloads["Success"] = FALSE;
+            }
+
+            NotifyAll();
+        }
+
+        public void SignOut()
+        {
+            _game = _gameEP.GameSessionSessionIDDelete(_player.Session);
+            _playerEP.LogoutPlayer(_player.Session);
+            _roles = null;
+            _actions = null;
+            //_player = null;
+            _game = null;
+            _playerRole = null;
+            _playerActions = null;
+            //_currentPeriod = 0;
+            _currentDay = 0;
+            _currentTime = 0;
+            _prevPlayers = null;
+            _isPlaying = false;
+            _event = EventEnum.SignOut;
+            _eventPayloads["Success"] = FALSE;
             NotifyAll();
         }
 

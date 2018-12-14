@@ -25,11 +25,16 @@ namespace WerewolfClient
         private string _myRole;
         private bool _isDead;
         private List<Player> players = null;
-
+        private int BG_count = 0;
+        private string[] BG_Arr = { "#020304", "#020304", "#020304", "#020304", "#020304", "#020304", "#070b12", "#0d1420", "#131d2e", "#18263c", "#1e2f4a",
+                                    "#233858", "#294066", "#2f4974", "#345282", "#3a5b90", "#40649e", "#456dac", "#4d76b7", "#5b81bd", "#698cc3",
+                                    "#7796c8", "#85a1ce", "#93acd4", "#a1b7d9", "#afc2df", "#bdcce5", "#cbd7ea", "#d9e2f0", "#e7edf5", "#f5f7fb",
+                                    "#f5f7fb", "#f5f7fb", "#f5f7fb", "#f5f7fb", "#f5f7fb" };
+                                      
         public GameForm()
         {
+             
             InitializeComponent();
-            
 
             foreach (int i in Enumerable.Range(0, 16))
             {
@@ -44,11 +49,16 @@ namespace WerewolfClient
             EnableButton(BtnJoin, true);
             EnableButton(BtnAction, false);
             EnableButton(BtnVote, false);
+            EnableButton(BtnLeave, false);
+            EnableButton(BtnSignOut, false);
             _myRole = null;
             _isDead = false;
-            
-            
             StartSetup();
+            this.DoubleBuffered = true;
+            foreach (Control control in this.Controls)
+            {
+                control.EnableDoubleBuferring();
+            }
         }
 
 
@@ -70,6 +80,23 @@ namespace WerewolfClient
             BtnJoin.FlatAppearance.MouseOverBackColor = Color.Transparent;
             BtnJoin.ForeColor = System.Drawing.Color.White;
             BtnJoin.Text = "Join Game";
+            BtnStars.BackColor = Color.Transparent;
+            //BtnStars.FlatStyle = FlatStyle.Flat;
+            //BtnStars.FlatAppearance.BorderSize = 0;
+            //BtnStars.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            //BtnStars.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BtnStars.ForeColor = System.Drawing.Color.White;
+            BtnStars.Text = "";
+            Sun_moon.Image = Properties.Resources.BG_the_moon_resize;
+            Sun_moon.Width = Properties.Resources.BG_the_moon_resize.Width;
+            Sun_moon.Height = Properties.Resources.BG_the_moon_resize.Height;
+            Sun_moon.BackColor = Color.Transparent;
+            //Sun_moon.FlatStyle = FlatStyle.Flat;
+            //Sun_moon.FlatAppearance.BorderSize = 0;
+            //Sun_moon.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            //Sun_moon.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            Sun_moon.ForeColor = System.Drawing.Color.White;
+            Sun_moon.Text = "";
 
             foreach (int i in Enumerable.Range(0, 16))
             {
@@ -77,8 +104,18 @@ namespace WerewolfClient
                 ButtonVisible((Button)Controls["panel1"].Controls["BtnPlayer" + i], false);
             }
 
-            this.ChatPanel.Visible = false; 
+            this.SystemOutBox.Visible = false;
+            this.TbChatBox.Visible = false;
+            this.TbChatInput.Visible = false;
+            this.LBDay.Visible = false;
+            this.LBPeriod.Visible = false;
+            this.LBTime.Visible = false;
+            this.label1.Visible = false;
+            this.label2.Visible = false;
             
+            panel1.BackgroundImage = Properties.Resources.BG_village_1080;
+            panel1.BackColor = Color.Transparent;
+
         }
 
         public void ButtonXSetup(Button btn, int i)
@@ -148,7 +185,7 @@ namespace WerewolfClient
                                 img = Properties.Resources.char_seer_resize2;
                                 break;
                             case WerewolfModel.ROLE_AURA_SEER:
-                                img = Properties.Resources.Icon_aura_seer;
+                                img = Properties.Resources.char_auraseer_resize2;
                                 break;
                             case WerewolfModel.ROLE_PRIEST:
                                 img = Properties.Resources.char_priest_resize2;
@@ -160,16 +197,16 @@ namespace WerewolfClient
                                 img = Properties.Resources.char_wolf_resize2;
                                 break;
                             case WerewolfModel.ROLE_WEREWOLF_SEER:
-                                img = Properties.Resources.Icon_wolf_seer;
+                                img = Properties.Resources.char_wolfseer_resize2;
                                 break;
                             case WerewolfModel.ROLE_ALPHA_WEREWOLF:
-                                img = Properties.Resources.Icon_alpha_werewolf;
+                                img = Properties.Resources.char_alphawolf_resize2;
                                 break;
                             case WerewolfModel.ROLE_WEREWOLF_SHAMAN:
                                 img = Properties.Resources.char_wolf_shaman_resize2;
                                 break;
                             case WerewolfModel.ROLE_MEDIUM:
-                                img = Properties.Resources.Icon_medium;
+                                img = Properties.Resources.char_medium_resize2;
                                 break;
                             case WerewolfModel.ROLE_BODYGUARD:
                                 img = Properties.Resources.char_Bodyguard_resize2;
@@ -178,7 +215,7 @@ namespace WerewolfClient
                                 img = Properties.Resources.char_jailer_resize2;
                                 break;
                             case WerewolfModel.ROLE_FOOL:
-                                img = Properties.Resources.Icon_fool;
+                                img = Properties.Resources.char_fool_resize2;
                                 break;
                             case WerewolfModel.ROLE_HEAD_HUNTER:
                                 img = Properties.Resources.char_Head_Hunter_resize2;
@@ -187,7 +224,7 @@ namespace WerewolfClient
                                 img = Properties.Resources.char_killer_resize2;
                                 break;
                             case WerewolfModel.ROLE_GUNNER:
-                                img = Properties.Resources.Icon_gunner;
+                                img = Properties.Resources.char_gunner_resize2;
                                 break;
                         }
                     }
@@ -199,7 +236,7 @@ namespace WerewolfClient
                                 img = Properties.Resources.char_seer_resize;
                                 break;
                             case WerewolfModel.ROLE_AURA_SEER:
-                                img = Properties.Resources.Icon_aura_seer;
+                                img = Properties.Resources.char_auraseer_resize;
                                 break;
                             case WerewolfModel.ROLE_PRIEST:
                                 img = Properties.Resources.char_priest_resize;
@@ -211,16 +248,16 @@ namespace WerewolfClient
                                 img = Properties.Resources.char_wolf_resize;
                                 break;
                             case WerewolfModel.ROLE_WEREWOLF_SEER:
-                                img = Properties.Resources.Icon_wolf_seer;
+                                img = Properties.Resources.char_wolfseer_resize;
                                 break;
                             case WerewolfModel.ROLE_ALPHA_WEREWOLF:
-                                img = Properties.Resources.Icon_alpha_werewolf;
+                                img = Properties.Resources.char_alphawolf_resize;
                                 break;
                             case WerewolfModel.ROLE_WEREWOLF_SHAMAN:
                                 img = Properties.Resources.char_wolf_shaman_resize;
                                 break;
                             case WerewolfModel.ROLE_MEDIUM:
-                                img = Properties.Resources.Icon_medium;
+                                img = Properties.Resources.char_medium_resize;
                                 break;
                             case WerewolfModel.ROLE_BODYGUARD:
                                 img = Properties.Resources.char_Bodyguard_resize;
@@ -229,7 +266,7 @@ namespace WerewolfClient
                                 img = Properties.Resources.char_jailer_resize;
                                 break;
                             case WerewolfModel.ROLE_FOOL:
-                                img = Properties.Resources.Icon_fool;
+                                img = Properties.Resources.char_fool_resize;
                                 break;
                             case WerewolfModel.ROLE_HEAD_HUNTER:
                                 img = Properties.Resources.char_Head_Hunter_resize;
@@ -238,7 +275,7 @@ namespace WerewolfClient
                                 img = Properties.Resources.char_killer_resize;
                                 break;
                             case WerewolfModel.ROLE_GUNNER:
-                                img = Properties.Resources.Icon_gunner;
+                                img = Properties.Resources.char_gunner_resize;
                                 break;
                         }
                     }
@@ -260,6 +297,72 @@ namespace WerewolfClient
                 WerewolfModel wm = (WerewolfModel)m;
                 switch (wm.Event)
                 {
+                    case EventEnum.SignOut:
+                        foreach (int i in Enumerable.Range(0, 16))
+                        {
+
+                            this.Controls["panel1"].Controls["BtnPlayer" + i].Click += new System.EventHandler(this.BtnPlayerX_Click);
+                            this.Controls["panel1"].Controls["BtnPlayer" + i].Tag = i;
+                        }
+
+                        this.SystemOutBox.Visible = false;
+                        this.TbChatBox.Visible = false;
+                        this.TbChatInput.Visible = false;
+                        this.LBDay.Visible = false;
+                        this.LBPeriod.Visible = false;
+                        this.LBTime.Visible = false;
+                        this.label1.Visible = false;
+                        this.label2.Visible = false;
+
+                        _updateTimer = new Timer();
+                        _voteActivated = false;
+                        _actionActivated = false;
+                        _myRole = null;
+                        _isDead = false;
+                        StartSetup();
+                        EnableButton(BtnJoin, true);
+                        EnableButton(BtnAction, false);
+                        EnableButton(BtnVote, false);
+                        EnableButton(BtnLeave, false);
+                        EnableButton(BtnSignOut, false);
+
+                        SystemOutBox.Text = "";
+                        
+                        this.Visible = false;
+
+
+                        break;
+                    case EventEnum.LeaveGame:
+                        foreach (int i in Enumerable.Range(0, 16))
+                        {
+
+                            this.Controls["panel1"].Controls["BtnPlayer" + i].Click += new System.EventHandler(this.BtnPlayerX_Click);
+                            this.Controls["panel1"].Controls["BtnPlayer" + i].Tag = i;
+                        }
+
+                        this.SystemOutBox.Visible = false;
+                        this.TbChatBox.Visible = false;
+                        this.TbChatInput.Visible = false;
+                        this.LBDay.Visible = false;
+                        this.LBPeriod.Visible = false;
+                        this.LBTime.Visible = false;
+                        this.label1.Visible = false;
+                        this.label2.Visible = false;
+
+                        _updateTimer = new Timer();
+                        _voteActivated = false;
+                        _actionActivated = false;
+                        _myRole = null;
+                        _isDead = false;
+                        StartSetup();
+                        EnableButton(BtnJoin, true);
+                        EnableButton(BtnAction, false);
+                        EnableButton(BtnVote, false);
+                        EnableButton(BtnLeave, false);
+                        EnableButton(BtnSignOut, false);
+                        SystemOutBox.Text = "";
+                        break;
+
                     case EventEnum.JoinGame:
                         if (wm.EventPayloads["Success"] == WerewolfModel.TRUE)
                         {
@@ -269,6 +372,22 @@ namespace WerewolfClient
                             _updateTimer.Interval = 1000;
                             _updateTimer.Tick += new EventHandler(OnTimerEvent);
                             _updateTimer.Enabled = true;
+
+                            foreach (int i in Enumerable.Range(0, 16))
+                            {
+                                ButtonVisible((Button)Controls["panel1"].Controls["BtnPlayer" + i], true);
+                            }
+
+                            this.SystemOutBox.Visible = true;
+                            this.TbChatBox.Visible = true;
+                            this.TbChatInput.Visible = true;
+                            this.LBDay.Visible = true;
+                            this.LBPeriod.Visible = true;
+                            this.LBTime.Visible = true;
+                            this.label1.Visible = true;
+                            this.label2.Visible = true;
+                            EnableButton(BtnLeave, true);
+                            EnableButton(BtnSignOut, true);
                         }
                         else
                         {
@@ -332,15 +451,13 @@ namespace WerewolfClient
                         //AddChatMessage("Switch to day time of day #" + wm.EventPayloads["Game.Current.Day"] + ".");
                         AddSystemMessage("Switch to day time of day #" + wm.EventPayloads["Game.Current.Day"] + ".");
                         _currentPeriod = Game.PeriodEnum.Day;
-                        LBPeriod.Text = "Day time of";
-                        //this.BackgroundImage = Properties.Resources._2; /////// switch background
+                        LBPeriod.Text = "Day time";
                         break;
                     case EventEnum.SwitchToNightTime:
                         //AddChatMessage("Switch to night time of day #" + wm.EventPayloads["Game.Current.Day"] + ".");
                         AddSystemMessage("Switch to night time of day #" + wm.EventPayloads["Game.Current.Day"] + ".");
                         _currentPeriod = Game.PeriodEnum.Night;
-                        LBPeriod.Text = "Night time of";
-                        //this.BackgroundImage = Properties.Resources.BG_Back; /////// switch background
+                        LBPeriod.Text = "Night time";
                         break;
                     case EventEnum.UpdateDay:
                         // TODO  catch parse exception here
@@ -352,7 +469,21 @@ namespace WerewolfClient
                         string tempTime = wm.EventPayloads["Game.Current.Time"];
                         _currentTime = int.Parse(tempTime);
                         LBTime.Text = tempTime;
-                            this.ButtonBG.Top--;
+                        if(_currentPeriod == Game.PeriodEnum.Night)
+                        {
+                            this.BackColor = ColorTranslator.FromHtml(BG_Arr[BG_count]);
+                            BG_count++;
+                            this.Sun_moon.Left-=4;
+                            if (BG_count == 36) BG_count--;
+                        }
+                        else
+                        {
+                            this.BackColor = ColorTranslator.FromHtml(BG_Arr[BG_count]);
+                            BG_count--;
+                            this.Sun_moon.Left += 4;
+                            if (BG_count == -1) BG_count++;
+                        }
+                        
                         UpdateAvatar(wm);
                         break;
                     case EventEnum.Vote:
@@ -467,19 +598,26 @@ namespace WerewolfClient
         }
         private void BtnJoin_Click(object sender, EventArgs e)
         {
-
             WerewolfCommand wcmd = new WerewolfCommand();
             wcmd.Action = CommandEnum.JoinGame;
             controller.ActionPerformed(wcmd);
 
-            foreach (int i in Enumerable.Range(0, 16))
-            {                
-                ButtonVisible((Button)Controls["panel1"].Controls["BtnPlayer" + i], true);              
-            }
-
-            this.ChatPanel.Visible = true;
+        }
+        private void BtnSignOut_Click(object sender, EventArgs e)
+        {
+            WerewolfCommand wcmd = new WerewolfCommand();
+            wcmd.Action = CommandEnum.SignOut;
+            controller.ActionPerformed(wcmd);
 
         }
+        private void BtnLeave_Click(object sender, EventArgs e)
+        {   
+            WerewolfCommand wcmd = new WerewolfCommand();
+            wcmd.Action = CommandEnum.LeaveGame;
+            controller.ActionPerformed(wcmd);
+
+        }
+
         private void GameForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Environment.Exit(0);
@@ -558,6 +696,16 @@ namespace WerewolfClient
         private void GameForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+
+    }
+    public static class Extensions
+    {
+        public static void EnableDoubleBuferring(this Control control)
+        {
+            var property = typeof(Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            property.SetValue(control, true, null);
         }
     }
 

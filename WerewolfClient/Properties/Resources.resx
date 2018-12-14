@@ -169,9 +169,6 @@
   <data name="Icon_priest" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_priest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Background_21" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Background_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Icon_wolf_shaman" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_wolf_shaman.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -198,9 +195,6 @@
   </data>
   <data name="Icon_medium" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_medium.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Background_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Background_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="char_someone_resize" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\char_someone_resize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -255,5 +249,101 @@
   </data>
   <data name="SIGN_UP" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SIGN_UP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Background_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Background_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BG_clocktower" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BG_clocktower.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BG_grass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BG_grass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BG_ground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BG_ground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BG_house1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BG_house1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BG_house2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BG_house2 .png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BG_Openning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BG_Openning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BG_store" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BG_store.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BG_temple" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BG_temple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BG_tree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BG_tree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BG_village" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BG_village.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="char_gunner_resize" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\char_gunner_resize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="char_gunner_resize2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\char_gunner_resize2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BG_village_1080" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BG_village_1080.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BG_village_Chatpanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BG_village_Chatpanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="char_alphawolf_resize" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\char_alphawolf_resize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="char_alphawolf_resize2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\char_alphawolf_resize2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="char_auraseer_resize" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\char_auraseer_resize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="char_auraseer_resize2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\char_auraseer_resize2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="char_fool_resize" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\char_fool_resize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="char_fool_resize2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\char_fool_resize2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="char_medium_resize" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\char_medium_resize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="char_medium_resize2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\char_medium_resize2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="char_seer_resize1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\char_seer_resize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="char_seer_resize21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\char_seer_resize2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="char_wolfseer_resize" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\char_wolfseer_resize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="char_wolfseer_resize2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\char_wolfseer_resize2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BG_Stars" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BG_Stars.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BG_the_moon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BG_the_moon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BG_the_sun" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BG_the_sun.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BG_the_moon_resize" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BG_the_moon_resize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BG_the_sun_resize" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BG_the_sun_resize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

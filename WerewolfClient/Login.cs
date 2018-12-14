@@ -25,6 +25,7 @@ namespace WerewolfClient
             InitializeComponent();
             _mainForm = GameForm;
 
+            this.BackgroundImage = Properties.Resources.Background_2;
             BtnSignIn.Height = Properties.Resources.SIGN_IN.Height;
             BtnSignIn.Width = Properties.Resources.SIGN_IN.Width;
             BtnSignIn.BackColor = Color.Transparent;
@@ -32,6 +33,7 @@ namespace WerewolfClient
             BtnSignIn.FlatAppearance.BorderSize = 0;
             BtnSignIn.FlatAppearance.MouseDownBackColor = Color.Transparent;
             BtnSignIn.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BtnSignIn.ForeColor = System.Drawing.Color.White;
 
             BtnSignUp.Height = Properties.Resources.SIGN_UP.Height;
             BtnSignUp.Width = Properties.Resources.SIGN_UP.Width;
@@ -40,6 +42,12 @@ namespace WerewolfClient
             BtnSignUp.FlatAppearance.BorderSize = 0;
             BtnSignUp.FlatAppearance.MouseDownBackColor = Color.Transparent;
             BtnSignUp.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BtnSignUp.ForeColor = System.Drawing.Color.White;
+
+            foreach (Control control in this.Controls)
+            {
+                control.EnableDoubleBuferring();
+            }
         }
 
         public void Notify(Model m)
@@ -70,6 +78,10 @@ namespace WerewolfClient
                             MessageBox.Show("Login or password incorrect, please try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         break;
+                    case WerewolfModel.EventEnum.SignOut:
+                        this.Visible = true;
+                        _mainForm.Visible = false;
+                        break;
                 }
             }
         }
@@ -87,6 +99,17 @@ namespace WerewolfClient
             controller.ActionPerformed(wcmd);
         }
 
+        private void Password_Enter(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return)
+            {
+                WerewolfCommand wcmd = new WerewolfCommand();
+                wcmd.Action = WerewolfCommand.CommandEnum.SignIn;
+                wcmd.Payloads = new Dictionary<string, string>() { { "Login", TbLogin.Text }, { "Password", TbPassword.Text }, { "Server", TBServer.Text } };
+                controller.ActionPerformed(wcmd);
+            }
+        }
+
         private void BtnSignUp_Click(object sender, EventArgs e)
         {
             WerewolfCommand wcmd = new WerewolfCommand();
@@ -95,4 +118,5 @@ namespace WerewolfClient
             controller.ActionPerformed(wcmd);
         }
     }
-}
+
+    }

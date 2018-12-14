@@ -410,13 +410,5 @@ namespace WerewolfClient
 
         }
 
-        private void Logout_btn_Click_1(object sender, EventArgs e)
-        {
-            this.Hide();
-            var form2 = new Login(this);
-            form2.Closed += (s, args) => this.Close();
-            form2.Show();
-            
-        }
     }
 }

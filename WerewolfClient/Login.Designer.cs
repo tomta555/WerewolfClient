@@ -32,10 +32,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TbLogin = new System.Windows.Forms.TextBox();
             this.TbPassword = new System.Windows.Forms.TextBox();
-            this.BtnSignIn = new System.Windows.Forms.Button();
-            this.BtnSignUp = new System.Windows.Forms.Button();
             this.TBServer = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.BtnSignUp = new System.Windows.Forms.Button();
+            this.BtnSignIn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -80,30 +80,7 @@
             this.TbPassword.PasswordChar = '*';
             this.TbPassword.Size = new System.Drawing.Size(363, 34);
             this.TbPassword.TabIndex = 3;
-            // 
-            // BtnSignIn
-            // 
-            this.BtnSignIn.BackgroundImage = global::WerewolfClient.Properties.Resources.SIGN_IN;
-            this.BtnSignIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSignIn.Location = new System.Drawing.Point(740, 491);
-            this.BtnSignIn.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnSignIn.Name = "BtnSignIn";
-            this.BtnSignIn.Size = new System.Drawing.Size(105, 113);
-            this.BtnSignIn.TabIndex = 4;
-            this.BtnSignIn.UseVisualStyleBackColor = true;
-            this.BtnSignIn.Click += new System.EventHandler(this.BtnSignIn_Click);
-            // 
-            // BtnSignUp
-            // 
-            this.BtnSignUp.BackgroundImage = global::WerewolfClient.Properties.Resources.SIGN_UP;
-            this.BtnSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSignUp.Location = new System.Drawing.Point(79, 491);
-            this.BtnSignUp.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnSignUp.Name = "BtnSignUp";
-            this.BtnSignUp.Size = new System.Drawing.Size(98, 117);
-            this.BtnSignUp.TabIndex = 5;
-            this.BtnSignUp.UseVisualStyleBackColor = true;
-            this.BtnSignUp.Click += new System.EventHandler(this.BtnSignUp_Click);
+            this.TbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Password_Enter);
             // 
             // TBServer
             // 
@@ -127,11 +104,34 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "API Address";
             // 
+            // BtnSignUp
+            // 
+            this.BtnSignUp.BackgroundImage = global::WerewolfClient.Properties.Resources.SIGN_UP;
+            this.BtnSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSignUp.Location = new System.Drawing.Point(79, 491);
+            this.BtnSignUp.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnSignUp.Name = "BtnSignUp";
+            this.BtnSignUp.Size = new System.Drawing.Size(98, 117);
+            this.BtnSignUp.TabIndex = 5;
+            this.BtnSignUp.UseVisualStyleBackColor = true;
+            this.BtnSignUp.Click += new System.EventHandler(this.BtnSignUp_Click);
+            // 
+            // BtnSignIn
+            // 
+            this.BtnSignIn.BackgroundImage = global::WerewolfClient.Properties.Resources.SIGN_IN;
+            this.BtnSignIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSignIn.Location = new System.Drawing.Point(740, 491);
+            this.BtnSignIn.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnSignIn.Name = "BtnSignIn";
+            this.BtnSignIn.Size = new System.Drawing.Size(105, 113);
+            this.BtnSignIn.TabIndex = 4;
+            this.BtnSignIn.UseVisualStyleBackColor = true;
+            this.BtnSignIn.Click += new System.EventHandler(this.BtnSignIn_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::WerewolfClient.Properties.Resources.Background_2;
             this.ClientSize = new System.Drawing.Size(934, 675);
             this.Controls.Add(this.TBServer);
             this.Controls.Add(this.label3);

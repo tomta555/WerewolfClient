@@ -415,15 +415,6 @@
             this.GBStatus.TabStop = false;
             this.GBStatus.Text = "Status";
             // 
-            // Logout_btn
-            // 
-            this.Logout_btn.Location = new System.Drawing.Point(0, 0);
-            this.Logout_btn.Name = "Logout_btn";
-            this.Logout_btn.Size = new System.Drawing.Size(75, 23);
-            this.Logout_btn.TabIndex = 0;
-            this.Logout_btn.Text = "Logout";
-            this.Logout_btn.Click += new System.EventHandler(this.Logout_btn_Click_1);
-            // 
             // LBTime
             // 
             this.LBTime.AutoSize = true;
