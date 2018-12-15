@@ -116,6 +116,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\RIPstone_resize.png" />
+    <None Include="Resources\RIPstone.png" />
+    <None Include="Resources\Tomb_Stone_resize.png" />
     <None Include="Resources\SIGN_UP.png" />
     <None Include="Resources\SIGN_IN.png" />
     <None Include="Resources\SIGN IN.png" />
@@ -171,6 +174,30 @@
     <None Include="Resources\BG_the_sun.png" />
     <None Include="Resources\BG_the_moon_resize.png" />
     <None Include="Resources\BG_the_sun_resize.png" />
+    <None Include="Resources\Background_2_ new.png" />
+    <None Include="Resources\BG_new_village.png" />
+    <None Include="Resources\Background_2_new.png" />
+    <None Include="Resources\button.png" />
+    <None Include="Resources\button_resize.png" />
+    <None Include="Resources\button_mini.png" />
+    <None Include="Resources\card_01.png" />
+    <None Include="Resources\card_02.png" />
+    <None Include="Resources\card_03.png" />
+    <None Include="Resources\card_04.png" />
+    <None Include="Resources\card_05.png" />
+    <None Include="Resources\card_06.png" />
+    <None Include="Resources\card_07.png" />
+    <None Include="Resources\card_08.png" />
+    <None Include="Resources\card_09.png" />
+    <None Include="Resources\card_010.png" />
+    <None Include="Resources\card_011.png" />
+    <None Include="Resources\card_012.png" />
+    <None Include="Resources\card_013.png" />
+    <None Include="Resources\card_014.png" />
+    <None Include="Resources\card_015.png" />
+    <None Include="Resources\card_016.png" />
+    <None Include="Resources\Arrow_resize.png" />
+    <None Include="Resources\Arrow_L_resize.png" />
     <Content Include="Resources\Icon_alpha_werewolf.png" />
     <Content Include="Resources\Icon_aura_seer.png" />
     <Content Include="Resources\Icon_bodyguard.png" />

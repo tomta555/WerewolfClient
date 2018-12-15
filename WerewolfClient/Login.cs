@@ -25,7 +25,7 @@ namespace WerewolfClient
             InitializeComponent();
             _mainForm = GameForm;
 
-            this.BackgroundImage = Properties.Resources.Background_2;
+            this.BackgroundImage = Properties.Resources.Background_2_new;
             BtnSignIn.Height = Properties.Resources.SIGN_IN.Height;
             BtnSignIn.Width = Properties.Resources.SIGN_IN.Width;
             BtnSignIn.BackColor = Color.Transparent;
@@ -71,7 +71,7 @@ namespace WerewolfClient
                     case WerewolfModel.EventEnum.SignUp:
                         if (wm.EventPayloads["Success"] == "True")
                         {
-                            MessageBox.Show("Sign up successfuly, please login", "Success", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                            MessageBox.Show("Sign up successfuly, please login", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         }
                         else
                         {

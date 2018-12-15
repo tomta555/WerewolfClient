@@ -23,9 +23,12 @@ namespace WerewolfClient
         private bool _voteActivated;
         private bool _actionActivated;
         private string _myRole;
+        private int card_count = 0;
+        private static bool firstshot = false;
         private bool _isDead;
         private List<Player> players = null;
         private int BG_count = 0;
+        private Image[] card_img = new Image[16];
         private string[] BG_Arr = { "#020304", "#020304", "#020304", "#020304", "#020304", "#020304", "#070b12", "#0d1420", "#131d2e", "#18263c", "#1e2f4a",
                                     "#233858", "#294066", "#2f4974", "#345282", "#3a5b90", "#40649e", "#456dac", "#4d76b7", "#5b81bd", "#698cc3",
                                     "#7796c8", "#85a1ce", "#93acd4", "#a1b7d9", "#afc2df", "#bdcce5", "#cbd7ea", "#d9e2f0", "#e7edf5", "#f5f7fb",
@@ -36,9 +39,29 @@ namespace WerewolfClient
              
             InitializeComponent();
 
+            card_img[0] = Properties.Resources.card_01;
+            card_img[1] = Properties.Resources.card_02;
+            card_img[2] = Properties.Resources.card_03;
+            card_img[3] = Properties.Resources.card_04;
+            card_img[4] = Properties.Resources.card_05;
+            card_img[5] = Properties.Resources.card_06;
+            card_img[6] = Properties.Resources.card_07;
+            card_img[7] = Properties.Resources.card_08;
+            card_img[8] = Properties.Resources.card_09;
+            card_img[9] = Properties.Resources.card_010;
+            card_img[10] = Properties.Resources.card_011;
+            card_img[11] = Properties.Resources.card_012;
+            card_img[12] = Properties.Resources.card_013;
+            card_img[13] = Properties.Resources.card_014;
+            card_img[14] = Properties.Resources.card_015;
+            card_img[15] = Properties.Resources.card_016;
+
+            Card_box.Image = card_img[0];          
+            Card_box.Width = card_img[0].Width;
+            Card_box.Height = card_img[0].Height;
+            Card_box.BackColor = Color.Transparent;
             foreach (int i in Enumerable.Range(0, 16))
-            {
-                
+            {                
                 this.Controls["panel1"].Controls["BtnPlayer" + i].Click += new System.EventHandler(this.BtnPlayerX_Click);
                 this.Controls["panel1"].Controls["BtnPlayer" + i].Tag = i;
             }
@@ -51,6 +74,8 @@ namespace WerewolfClient
             EnableButton(BtnVote, false);
             EnableButton(BtnLeave, false);
             EnableButton(BtnSignOut, false);
+            BtnBack.Visible = false;
+            
             _myRole = null;
             _isDead = false;
             StartSetup();
@@ -70,34 +95,75 @@ namespace WerewolfClient
         {
             panel1.BackColor = Color.Transparent;
             panel1.ForeColor = System.Drawing.Color.White;
-            BtnJoin.Image = Properties.Resources.Btn_join;
-            BtnJoin.Width = Properties.Resources.Btn_join.Width;
-            BtnJoin.Height = Properties.Resources.Btn_join.Height;
+            BtnJoin.Image = Properties.Resources.button_resize;
+            BtnJoin.Width = Properties.Resources.button_resize.Width;
+            BtnJoin.Height = Properties.Resources.button_resize.Height;
             BtnJoin.BackColor = Color.Transparent;
             BtnJoin.FlatStyle = FlatStyle.Flat;
             BtnJoin.FlatAppearance.BorderSize = 0;
             BtnJoin.FlatAppearance.MouseDownBackColor = Color.Transparent;
             BtnJoin.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            BtnJoin.ForeColor = System.Drawing.Color.White;
             BtnJoin.Text = "Join Game";
-            BtnStars.BackColor = Color.Transparent;
-            //BtnStars.FlatStyle = FlatStyle.Flat;
-            //BtnStars.FlatAppearance.BorderSize = 0;
-            //BtnStars.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            //BtnStars.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            BtnStars.ForeColor = System.Drawing.Color.White;
-            BtnStars.Text = "";
+            BtnViewRole.Image = Properties.Resources.button_resize;
+            BtnViewRole.Width = Properties.Resources.button_resize.Width;
+            BtnViewRole.Height = Properties.Resources.button_resize.Height;
+            BtnViewRole.BackColor = Color.Transparent;
+            BtnViewRole.FlatStyle = FlatStyle.Flat;
+            BtnViewRole.FlatAppearance.BorderSize = 0;
+            BtnViewRole.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnViewRole.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BtnViewRole.Text = "Roles";
             Sun_moon.Image = Properties.Resources.BG_the_moon_resize;
             Sun_moon.Width = Properties.Resources.BG_the_moon_resize.Width;
             Sun_moon.Height = Properties.Resources.BG_the_moon_resize.Height;
             Sun_moon.BackColor = Color.Transparent;
-            //Sun_moon.FlatStyle = FlatStyle.Flat;
-            //Sun_moon.FlatAppearance.BorderSize = 0;
-            //Sun_moon.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            //Sun_moon.FlatAppearance.MouseOverBackColor = Color.Transparent;
             Sun_moon.ForeColor = System.Drawing.Color.White;
             Sun_moon.Text = "";
+            BtnRight.Image = Properties.Resources.Arrow_resize;
+            BtnRight.Width  = Properties.Resources.Arrow_resize.Width;
+            BtnRight.Height = Properties.Resources.Arrow_resize.Height;
+            BtnRight.BackColor = Color.Transparent;
+            BtnRight.FlatStyle = FlatStyle.Flat;
+            BtnRight.FlatAppearance.BorderSize = 0;
+            BtnRight.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnRight.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BtnLeft.Image = Properties.Resources.Arrow_L_resize;
+            BtnLeft.Width = Properties.Resources.Arrow_L_resize.Width;
+            BtnLeft.Height = Properties.Resources.Arrow_L_resize.Height;
+            BtnLeft.BackColor = Color.Transparent;
+            BtnLeft.FlatStyle = FlatStyle.Flat;
+            BtnLeft.FlatAppearance.BorderSize = 0;
+            BtnLeft.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnLeft.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BtnBack.Image = Properties.Resources.button_resize;
+            BtnBack.Width = Properties.Resources.button_resize.Width;
+            BtnBack.Height = Properties.Resources.button_resize.Height;
+            BtnBack.BackColor = Color.Transparent;
+            BtnBack.FlatStyle = FlatStyle.Flat;
+            BtnBack.FlatAppearance.BorderSize = 0;
+            BtnBack.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnBack.FlatAppearance.MouseOverBackColor = Color.Transparent;
 
+            BtnVote.BackColor = Color.Transparent;
+            BtnVote.FlatStyle = FlatStyle.Flat;
+            BtnVote.FlatAppearance.BorderSize = 0;
+            BtnVote.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnVote.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BtnLeave.BackColor = Color.Transparent;
+            BtnLeave.FlatStyle = FlatStyle.Flat;
+            BtnLeave.FlatAppearance.BorderSize = 0;
+            BtnLeave.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnLeave.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BtnAction.BackColor = Color.Transparent;
+            BtnAction.FlatStyle = FlatStyle.Flat;
+            BtnAction.FlatAppearance.BorderSize = 0;
+            BtnAction.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnAction.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BtnSignOut.BackColor = Color.Transparent;
+            BtnSignOut.FlatStyle = FlatStyle.Flat;
+            BtnSignOut.FlatAppearance.BorderSize = 0;
+            BtnSignOut.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnSignOut.FlatAppearance.MouseOverBackColor = Color.Transparent;
             foreach (int i in Enumerable.Range(0, 16))
             {
                 ButtonXSetup((Button)Controls["panel1"].Controls["BtnPlayer" + i], i);
@@ -112,8 +178,12 @@ namespace WerewolfClient
             this.LBTime.Visible = false;
             this.label1.Visible = false;
             this.label2.Visible = false;
-            
-            panel1.BackgroundImage = Properties.Resources.BG_village_1080;
+
+            Card_box.Visible = false;
+            BtnRight.Visible = false;
+            BtnLeft.Visible = false;
+
+            panel1.BackgroundImage = Properties.Resources.BG_new_village;
             panel1.BackColor = Color.Transparent;
 
         }
@@ -136,8 +206,8 @@ namespace WerewolfClient
             btn.BackColor = Color.Transparent;
             btn.FlatStyle = FlatStyle.Flat;
             btn.FlatAppearance.BorderSize = 0;
-            //btn.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            //btn.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btn.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btn.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btn.ForeColor = System.Drawing.Color.Black;
             btn.Text = "";
         }
@@ -155,15 +225,17 @@ namespace WerewolfClient
         }
         private void UpdateAvatar(WerewolfModel wm)
         {
+            bool isGunner = false;
             int i = 0;
             foreach (Player player in wm.Players)
             {
+                string role = null;
                 Controls["panel1"].Controls["BtnPlayer" + i].Text = player.Name;
                 if (player.Name == wm.Player.Name || player.Status != Player.StatusEnum.Alive)
                 {
                     // FIXME, need to optimize this
                     Image img = Properties.Resources.char_villager_resize;
-                    string role;
+                    
                     if (player.Name == wm.Player.Name)
                     {
                         role = _myRole;
@@ -173,9 +245,8 @@ namespace WerewolfClient
                         role = player.Role.Name;
                     }
                     else
-                    {
-                        i++;
-                        continue;
+                    {                        
+                        goto endloop;
                     }
                     if (i >= 8)
                     {
@@ -275,6 +346,7 @@ namespace WerewolfClient
                                 img = Properties.Resources.char_killer_resize;
                                 break;
                             case WerewolfModel.ROLE_GUNNER:
+                                isGunner = true;
                                 img = Properties.Resources.char_gunner_resize;
                                 break;
                         }
@@ -286,9 +358,38 @@ namespace WerewolfClient
                     Image img = Properties.Resources.char_villager_resize;
                     ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Image = img;
                 }
+                endloop:
+                if(player.Status == Player.StatusEnum.Shotdead)
+                {
+                    Image img = Properties.Resources.RIPstone_resize;
+                    ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Image = img;                            
+                }
+                else if (player.Status == Player.StatusEnum.Killdead)
+                {
+                    Image img = Properties.Resources.RIPstone_resize;
+                    ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Image = img;
+                }
+                else if (player.Status == Player.StatusEnum.Holydead)
+                {
+                    Image img = Properties.Resources.RIPstone_resize;
+                    ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Image = img;
+                }
+                else if (player.Status == Player.StatusEnum.Votedead)
+                {
+                    Image img = Properties.Resources.RIPstone_resize;
+                    ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Image = img;
+                }
+                else if (player.Status == Player.StatusEnum.Jaildead)
+                {
+                    Image img = Properties.Resources.RIPstone_resize;
+                    ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Image = img;
+                }
                 i++;
             }
+            
+
         }
+
 
         public void Notify(Model m)
         {
@@ -319,8 +420,11 @@ namespace WerewolfClient
                         _actionActivated = false;
                         _myRole = null;
                         _isDead = false;
+
                         StartSetup();
+
                         EnableButton(BtnJoin, true);
+                        EnableButton(BtnViewRole, true);
                         EnableButton(BtnAction, false);
                         EnableButton(BtnVote, false);
                         EnableButton(BtnLeave, false);
@@ -356,6 +460,7 @@ namespace WerewolfClient
                         _isDead = false;
                         StartSetup();
                         EnableButton(BtnJoin, true);
+                        EnableButton(BtnViewRole, true);
                         EnableButton(BtnAction, false);
                         EnableButton(BtnVote, false);
                         EnableButton(BtnLeave, false);
@@ -388,6 +493,8 @@ namespace WerewolfClient
                             this.label2.Visible = true;
                             EnableButton(BtnLeave, true);
                             EnableButton(BtnSignOut, true);
+                            EnableButton(BtnViewRole, false);
+
                         }
                         else
                         {
@@ -443,8 +550,9 @@ namespace WerewolfClient
                                 EnableButton(BtnAction, false);
                                 break;
                         }
-                        EnableButton(BtnVote, true);///////Need Edit///////
-                        EnableButton(BtnJoin, false);/////////////
+                        EnableButton(BtnVote, true);
+                        EnableButton(BtnJoin, false);
+                        EnableButton(BtnViewRole, false);
                         UpdateAvatar(wm);
                         break;
                     case EventEnum.SwitchToDayTime:
@@ -471,10 +579,9 @@ namespace WerewolfClient
                         LBTime.Text = tempTime;
                         if(_currentPeriod == Game.PeriodEnum.Night)
                         {
+                            this.Sun_moon.Left -= 4;
                             this.BackColor = ColorTranslator.FromHtml(BG_Arr[BG_count]);
-                            BG_count++;
-                            this.Sun_moon.Left-=4;
-                            if (BG_count == 36) BG_count--;
+                            if (BG_count < 35) BG_count++;
                         }
                         else
                         {
@@ -483,7 +590,6 @@ namespace WerewolfClient
                             this.Sun_moon.Left += 4;
                             if (BG_count == -1) BG_count++;
                         }
-                        
                         UpdateAvatar(wm);
                         break;
                     case EventEnum.Vote:
@@ -501,8 +607,17 @@ namespace WerewolfClient
                     case EventEnum.Action:
                         if (wm.EventPayloads["Success"] == WerewolfModel.TRUE)
                         {
+                            
                             //AddChatMessage("Your action is registered.");
                             AddSystemMessage("Your action is registered.");
+                            if (_myRole == WerewolfModel.ROLE_GUNNER)
+                            {
+                                WerewolfCommand wcmd = new WerewolfCommand();
+                                wcmd.Action = CommandEnum.Chat;
+                                wcmd.Payloads = new Dictionary<string, string>() { { "Message", "I am a Gunner" } };
+                                controller.ActionPerformed(wcmd);
+                                firstshot = true;
+                            }
                         }
                         else
                         {
@@ -603,6 +718,16 @@ namespace WerewolfClient
             controller.ActionPerformed(wcmd);
 
         }
+        private void BtnViewRole_Click(object sender, EventArgs e)
+        {
+            Card_box.Visible = true;
+            BtnLeft.Visible = true;
+            BtnRight.Visible = true;
+            BtnJoin.Visible = false;
+            BtnBack.Visible = true;
+
+        }
+
         private void BtnSignOut_Click(object sender, EventArgs e)
         {
             WerewolfCommand wcmd = new WerewolfCommand();
@@ -615,8 +740,9 @@ namespace WerewolfClient
             WerewolfCommand wcmd = new WerewolfCommand();
             wcmd.Action = CommandEnum.LeaveGame;
             controller.ActionPerformed(wcmd);
-
         }
+
+
 
         private void GameForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -698,7 +824,29 @@ namespace WerewolfClient
 
         }
 
+        private void BtnRight_Click(object sender, EventArgs e)
+        {
+            card_count++;
+            if (card_count == 16) card_count = 0;
+            Card_box.Image = card_img[card_count];
+            
+        }
 
+        private void BtnLeft_Click(object sender, EventArgs e)
+        {
+            card_count--;
+            if (card_count == -1) card_count = 15;
+            Card_box.Image = card_img[card_count];
+        }
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            Card_box.Visible = false;
+            BtnLeft.Visible = false;
+            BtnRight.Visible = false;
+            BtnJoin.Visible = true;
+            BtnBack.Visible = false;
+        }
     }
     public static class Extensions
     {

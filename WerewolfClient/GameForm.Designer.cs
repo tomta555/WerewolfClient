@@ -30,8 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameForm));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Sun_moon = new System.Windows.Forms.PictureBox();
+            this.BtnRight = new System.Windows.Forms.Button();
+            this.BtnLeft = new System.Windows.Forms.Button();
+            this.Card_box = new System.Windows.Forms.PictureBox();
+            this.BtnViewRole = new System.Windows.Forms.Button();
             this.BtnJoin = new System.Windows.Forms.Button();
+            this.Sun_moon = new System.Windows.Forms.PictureBox();
             this.BtnSignOut = new System.Windows.Forms.Button();
             this.BtnLeave = new System.Windows.Forms.Button();
             this.BtnPlayer7 = new System.Windows.Forms.Button();
@@ -61,7 +65,9 @@
             this.BtnPlayer9 = new System.Windows.Forms.Button();
             this.BtnPlayer8 = new System.Windows.Forms.Button();
             this.BtnStars = new System.Windows.Forms.PictureBox();
+            this.BtnBack = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Card_box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Sun_moon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnStars)).BeginInit();
             this.SuspendLayout();
@@ -69,8 +75,13 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.Sun_moon);
+            this.panel1.Controls.Add(this.BtnBack);
+            this.panel1.Controls.Add(this.BtnRight);
+            this.panel1.Controls.Add(this.BtnLeft);
+            this.panel1.Controls.Add(this.Card_box);
+            this.panel1.Controls.Add(this.BtnViewRole);
             this.panel1.Controls.Add(this.BtnJoin);
+            this.panel1.Controls.Add(this.Sun_moon);
             this.panel1.Controls.Add(this.BtnSignOut);
             this.panel1.Controls.Add(this.BtnLeave);
             this.panel1.Controls.Add(this.BtnPlayer7);
@@ -99,34 +110,78 @@
             this.panel1.Controls.Add(this.BtnPlayer10);
             this.panel1.Controls.Add(this.BtnPlayer9);
             this.panel1.Controls.Add(this.BtnPlayer8);
-            this.panel1.Controls.Add(this.BtnStars);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1920, 1080);
             this.panel1.TabIndex = 0;
             // 
-            // Sun_moon
+            // BtnRight
             // 
-            this.Sun_moon.Location = new System.Drawing.Point(34, 55);
-            this.Sun_moon.Name = "Sun_moon";
-            this.Sun_moon.Size = new System.Drawing.Size(152, 100);
-            this.Sun_moon.TabIndex = 30;
-            this.Sun_moon.TabStop = false;
+            this.BtnRight.Location = new System.Drawing.Point(1339, 497);
+            this.BtnRight.Name = "BtnRight";
+            this.BtnRight.Size = new System.Drawing.Size(112, 58);
+            this.BtnRight.TabIndex = 34;
+            this.BtnRight.UseVisualStyleBackColor = true;
+            this.BtnRight.Click += new System.EventHandler(this.BtnRight_Click);
+            // 
+            // BtnLeft
+            // 
+            this.BtnLeft.Location = new System.Drawing.Point(457, 497);
+            this.BtnLeft.Name = "BtnLeft";
+            this.BtnLeft.Size = new System.Drawing.Size(112, 58);
+            this.BtnLeft.TabIndex = 33;
+            this.BtnLeft.UseVisualStyleBackColor = true;
+            this.BtnLeft.Click += new System.EventHandler(this.BtnLeft_Click);
+            // 
+            // Card_box
+            // 
+            this.Card_box.Location = new System.Drawing.Point(604, 57);
+            this.Card_box.Name = "Card_box";
+            this.Card_box.Size = new System.Drawing.Size(700, 943);
+            this.Card_box.TabIndex = 32;
+            this.Card_box.TabStop = false;
+            // 
+            // BtnViewRole
+            // 
+            this.BtnViewRole.BackgroundImage = global::WerewolfClient.Properties.Resources.button_resize;
+            this.BtnViewRole.Font = new System.Drawing.Font("TF NopScript", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.BtnViewRole.ForeColor = System.Drawing.Color.Snow;
+            this.BtnViewRole.Location = new System.Drawing.Point(856, 596);
+            this.BtnViewRole.Name = "BtnViewRole";
+            this.BtnViewRole.Size = new System.Drawing.Size(313, 200);
+            this.BtnViewRole.TabIndex = 31;
+            this.BtnViewRole.Text = "Roles";
+            this.BtnViewRole.UseVisualStyleBackColor = true;
+            this.BtnViewRole.Click += new System.EventHandler(this.BtnViewRole_Click);
             // 
             // BtnJoin
             // 
-            this.BtnJoin.BackgroundImage = global::WerewolfClient.Properties.Resources.Btn_join;
-            this.BtnJoin.Location = new System.Drawing.Point(919, 407);
+            this.BtnJoin.BackgroundImage = global::WerewolfClient.Properties.Resources.button_resize;
+            this.BtnJoin.Font = new System.Drawing.Font("TF NopScript", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnJoin.ForeColor = System.Drawing.Color.Snow;
+            this.BtnJoin.Location = new System.Drawing.Point(856, 355);
             this.BtnJoin.Name = "BtnJoin";
-            this.BtnJoin.Size = new System.Drawing.Size(335, 113);
+            this.BtnJoin.Size = new System.Drawing.Size(313, 200);
             this.BtnJoin.TabIndex = 15;
             this.BtnJoin.Text = "Join Game";
             this.BtnJoin.UseVisualStyleBackColor = true;
             this.BtnJoin.Click += new System.EventHandler(this.BtnJoin_Click);
             // 
+            // Sun_moon
+            // 
+            this.Sun_moon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Sun_moon.Location = new System.Drawing.Point(16, 38);
+            this.Sun_moon.Name = "Sun_moon";
+            this.Sun_moon.Size = new System.Drawing.Size(152, 100);
+            this.Sun_moon.TabIndex = 30;
+            this.Sun_moon.TabStop = false;
+            // 
             // BtnSignOut
             // 
-            this.BtnSignOut.Location = new System.Drawing.Point(1749, 943);
+            this.BtnSignOut.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnSignOut.BackgroundImage")));
+            this.BtnSignOut.Font = new System.Drawing.Font("TF NopScript", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.BtnSignOut.ForeColor = System.Drawing.Color.Snow;
+            this.BtnSignOut.Location = new System.Drawing.Point(1749, 931);
             this.BtnSignOut.Margin = new System.Windows.Forms.Padding(4);
             this.BtnSignOut.Name = "BtnSignOut";
             this.BtnSignOut.Size = new System.Drawing.Size(100, 57);
@@ -137,12 +192,15 @@
             // 
             // BtnLeave
             // 
-            this.BtnLeave.Location = new System.Drawing.Point(1641, 943);
+            this.BtnLeave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnLeave.BackgroundImage")));
+            this.BtnLeave.Font = new System.Drawing.Font("TF NopScript", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.BtnLeave.ForeColor = System.Drawing.Color.Snow;
+            this.BtnLeave.Location = new System.Drawing.Point(1641, 931);
             this.BtnLeave.Margin = new System.Windows.Forms.Padding(4);
             this.BtnLeave.Name = "BtnLeave";
             this.BtnLeave.Size = new System.Drawing.Size(100, 57);
             this.BtnLeave.TabIndex = 25;
-            this.BtnLeave.Text = "Leave Game";
+            this.BtnLeave.Text = "Leave";
             this.BtnLeave.UseVisualStyleBackColor = true;
             this.BtnLeave.Click += new System.EventHandler(this.BtnLeave_Click);
             // 
@@ -163,7 +221,10 @@
             // 
             // BtnAction
             // 
-            this.BtnAction.Location = new System.Drawing.Point(1523, 943);
+            this.BtnAction.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnAction.BackgroundImage")));
+            this.BtnAction.Font = new System.Drawing.Font("TF NopScript", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.BtnAction.ForeColor = System.Drawing.Color.Snow;
+            this.BtnAction.Location = new System.Drawing.Point(1523, 931);
             this.BtnAction.Margin = new System.Windows.Forms.Padding(4);
             this.BtnAction.Name = "BtnAction";
             this.BtnAction.Size = new System.Drawing.Size(100, 57);
@@ -189,7 +250,10 @@
             // 
             // BtnVote
             // 
-            this.BtnVote.Location = new System.Drawing.Point(1415, 942);
+            this.BtnVote.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnVote.BackgroundImage")));
+            this.BtnVote.Font = new System.Drawing.Font("TF NopScript", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.BtnVote.ForeColor = System.Drawing.Color.Snow;
+            this.BtnVote.Location = new System.Drawing.Point(1415, 930);
             this.BtnVote.Margin = new System.Windows.Forms.Padding(4);
             this.BtnVote.Name = "BtnVote";
             this.BtnVote.Size = new System.Drawing.Size(100, 57);
@@ -501,6 +565,17 @@
             this.BtnStars.TabIndex = 29;
             this.BtnStars.TabStop = false;
             // 
+            // BtnBack
+            // 
+            this.BtnBack.Font = new System.Drawing.Font("TF NopScript", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.BtnBack.Location = new System.Drawing.Point(309, 85);
+            this.BtnBack.Name = "BtnBack";
+            this.BtnBack.Size = new System.Drawing.Size(180, 92);
+            this.BtnBack.TabIndex = 35;
+            this.BtnBack.Text = "Back";
+            this.BtnBack.UseVisualStyleBackColor = true;
+            this.BtnBack.Click += new System.EventHandler(this.Back_Click);
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -509,12 +584,14 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1902, 1033);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.BtnStars);
             this.Name = "GameForm";
             this.Text = "GameForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GameForm_FormClosed);
             this.Load += new System.EventHandler(this.GameForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Card_box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Sun_moon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnStars)).EndInit();
             this.ResumeLayout(false);
@@ -555,5 +632,10 @@
         private System.Windows.Forms.Button BtnLeave;
         private System.Windows.Forms.PictureBox BtnStars;
         private System.Windows.Forms.PictureBox Sun_moon;
+        private System.Windows.Forms.Button BtnViewRole;
+        private System.Windows.Forms.PictureBox Card_box;
+        private System.Windows.Forms.Button BtnLeft;
+        private System.Windows.Forms.Button BtnRight;
+        private System.Windows.Forms.Button BtnBack;
     }
 }

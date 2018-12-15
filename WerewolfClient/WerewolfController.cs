@@ -55,11 +55,9 @@ namespace WerewolfClient
                         case WerewolfCommand.CommandEnum.SignIn:
                             wm.SignIn(cmd.Payloads["Server"], cmd.Payloads["Login"], cmd.Payloads["Password"]);
                             break;
-
                         case WerewolfCommand.CommandEnum.SignOut:
                             wm.SignOut();
                             break;
-
                         case WerewolfCommand.CommandEnum.JoinGame:
                             wm.JoinGame();
                             break;
