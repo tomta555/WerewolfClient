@@ -362,27 +362,37 @@ namespace WerewolfClient
                 if(player.Status == Player.StatusEnum.Shotdead)
                 {
                     Image img = Properties.Resources.RIPstone_resize;
-                    ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Image = img;                            
+                    ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Image = img;
+                    ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Width = img.Width;
+                    ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Height = img.Height;
                 }
                 else if (player.Status == Player.StatusEnum.Killdead)
                 {
                     Image img = Properties.Resources.RIPstone_resize;
                     ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Image = img;
+                    ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Width = img.Width;
+                    ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Height = img.Height;
                 }
                 else if (player.Status == Player.StatusEnum.Holydead)
                 {
                     Image img = Properties.Resources.RIPstone_resize;
                     ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Image = img;
+                    ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Width = img.Width;
+                    ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Height = img.Height;
                 }
                 else if (player.Status == Player.StatusEnum.Votedead)
                 {
                     Image img = Properties.Resources.RIPstone_resize;
                     ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Image = img;
+                    ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Width = img.Width;
+                    ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Height = img.Height;
                 }
                 else if (player.Status == Player.StatusEnum.Jaildead)
                 {
                     Image img = Properties.Resources.RIPstone_resize;
                     ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Image = img;
+                    ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Width = img.Width;
+                    ((Button)Controls["panel1"].Controls["BtnPlayer" + i]).Height = img.Height;
                 }
                 i++;
             }
